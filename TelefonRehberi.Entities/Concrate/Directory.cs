@@ -7,14 +7,10 @@ using TelefonRehberi.Entities.Abstract;
 
 namespace TelefonRehberi.Entities.Concrate
 {
-    public class Person : IEntity
+    public class Directory : IEntity
     {
-        public Guid PersonId { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Company { get; set; }
-
         public Guid DirectoryId { get; set; }
-        public Directory Directory { get; set; }
+
+        public ICollection<Person> People { get; set; }
     }
 }

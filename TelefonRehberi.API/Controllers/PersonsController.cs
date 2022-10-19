@@ -57,15 +57,17 @@ namespace TelefonRehberi.API.Controllers
             if (personModel == null)
                 return BadRequest();
 
-            var person = new Person
-            {
-                FirstName = personModel.FirstName,
-                LastName = personModel.LastName,
-                Company = personModel.Company
-            };
-            var addedPerson = _personService.Update(person);
+            var person = _personService.GetById(personModel.PersonId);
+            if (person == null)
+                return NotFound();
 
-            return Ok(addedPerson);
+            person.FirstName = personModel.FirstName;
+            person.LastName = personModel.LastName;
+            person.Company = personModel.Company;
+
+            var updatedPerson = _personService.Update(person);
+
+            return Ok(updatedPerson);
         }
 
         [HttpDelete]

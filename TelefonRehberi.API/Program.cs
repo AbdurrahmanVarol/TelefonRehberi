@@ -1,6 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using System.Configuration;
 using TelefonRehberi.Business.Abstract;
 using TelefonRehberi.Business.Concrate;
 using TelefonRehberi.DataAccess.Abstract;
@@ -11,9 +9,14 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-builder.Services.AddDbContext<TelefonRehberiContext>(options => options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;initial catalog=TelefonRehberiDb;Integrated Security=true"));
+builder.Services.AddDbContext<TelefonRehberiContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 builder.Services.AddScoped<IPersonService, PersonManager>();
-builder.Services.AddScoped<IPersonDal,EfPersonDal>();
+builder.Services.AddScoped<IInfoService, InfoManager>();
+
+builder.Services.AddScoped<IPersonDal, EfPersonDal>();
+builder.Services.AddScoped<IInfoDal, EfInfoDal>();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

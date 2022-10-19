@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using TelefonRehberi.DataAccess.Abstract;
-using TelefonRehberi.Entities.Concrate;
+using TelefonRehberi.Entities.Concrete;
 
 namespace TelefonRehberi.DataAccess.Concrate.EntityFramework
 {

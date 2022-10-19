@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TelefonRehberi.Business.Abstract;
 using TelefonRehberi.DataAccess.Abstract;
-using TelefonRehberi.Entities.Concrate;
+using TelefonRehberi.Entities.Concrete;
 
 namespace TelefonRehberi.Business.Concrate
 {

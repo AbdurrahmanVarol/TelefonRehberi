@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using TelefonRehberi.API.Models;
 using TelefonRehberi.Business.Abstract;
-using TelefonRehberi.Entities.Concrate;
+using TelefonRehberi.Entities.Concrete;
 
 namespace TelefonRehberi.API.Controllers
 {
@@ -11,7 +11,7 @@ namespace TelefonRehberi.API.Controllers
     [ApiController]
     public class PersonsController : ControllerBase
     {
-        private IPersonService _personService;
+        private readonly IPersonService _personService;
 
         public PersonsController(IPersonService personService)
         {
@@ -25,7 +25,7 @@ namespace TelefonRehberi.API.Controllers
         }
 
         [HttpGet]
-        [Route("conroller/{personId}")]
+        [Route("{personId}")]
         public IActionResult Get(Guid personId)
         {
             var person = _personService.GetById(personId);
@@ -44,8 +44,7 @@ namespace TelefonRehberi.API.Controllers
             {
                 FirstName = personModel.FirstName,
                 LastName = personModel.LastName,
-                Company = personModel.Company,
-                DirectoryId = personModel.DirectoryId
+                Company = personModel.Company
             };
             var addedPerson = _personService.Add(person);
 
@@ -62,8 +61,7 @@ namespace TelefonRehberi.API.Controllers
             {
                 FirstName = personModel.FirstName,
                 LastName = personModel.LastName,
-                Company = personModel.Company,
-                DirectoryId = personModel.DirectoryId
+                Company = personModel.Company
             };
             var addedPerson = _personService.Update(person);
 
@@ -71,7 +69,7 @@ namespace TelefonRehberi.API.Controllers
         }
 
         [HttpDelete]
-        [Route("controller/{personId}")]
+        [Route("{personId}")]
         public IActionResult Delete(Guid personId)
         {
             var person = _personService.GetById(personId);
@@ -80,7 +78,15 @@ namespace TelefonRehberi.API.Controllers
                 return NotFound();
             }
             _personService.Delete(person);
-            return Ok();
+            return NoContent();
         }
+
+        //GET
+        //Persons/5/CommunicationInfo
+
+        //CommunicatioInfo (Body Person Id : 5)
+
+        // Persons/CommunicationInfo
+
     }
 }

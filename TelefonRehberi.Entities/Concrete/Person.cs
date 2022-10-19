@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TelefonRehberi.Entities.Abstract;
 
-namespace TelefonRehberi.Entities.Concrate
+namespace TelefonRehberi.Entities.Concrete
 {
     public class Person : IEntity
     {
@@ -14,7 +14,6 @@ namespace TelefonRehberi.Entities.Concrate
         public string LastName { get; set; }
         public string Company { get; set; }
 
-        public Guid DirectoryId { get; set; }
-        public Directory Directory { get; set; }
+        ICollection<Info> Infos { get; set; }
     }
 }

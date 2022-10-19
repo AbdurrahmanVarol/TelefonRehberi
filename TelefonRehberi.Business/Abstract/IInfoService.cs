@@ -7,12 +7,12 @@ using TelefonRehberi.Entities.Concrete;
 
 namespace TelefonRehberi.Business.Abstract
 {
-    public interface IPersonService
+    public interface IInfoService
     {
-        Person Add(Person person);
-        void Delete(Person person);
-        Person Update(Person person);
-        Person GetById(Guid personId);
-        List<Person> GetAll();
+        Info Add(Info info);
+        void Delete(Info info);
+        Info Update(Info info);
+        Info GetById(Guid info);
+        List<Info> GetAll();
     }
 }

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TelefonRehberi.Entities.Concrete;
 
 namespace TelefonRehberi.DataAccess.Abstract
 {
-    public interface IDirectoryDal : IEntityRepository<Entities.Concrate.Directory>
+    public interface IInfoDal : IEntityRepository<Info>
     {
-        
     }
 }

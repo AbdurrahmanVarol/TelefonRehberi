@@ -8,31 +8,10 @@ using TelefonRehberi.DataAccess.Abstract;
 
 namespace TelefonRehberi.DataAccess.Concrate.EntityFramework
 {
-    public class EfDirectoryDal : IDirectoryDal
+    public class EfDirectoryDal : EfEntityRepositoryBase<Entities.Concrate.Directory, TelefonRehberiContext>, IDirectoryDal
     {
-        public Entities.Concrate.Directory Add(Entities.Concrate.Directory entity)
+        public EfDirectoryDal(TelefonRehberiContext context) : base(context)
         {
-            throw new NotImplementedException();
-        }
-
-        public Entities.Concrate.Directory Delete(Entities.Concrate.Directory entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Entities.Concrate.Directory Get(Expression<Func<Entities.Concrate.Directory, bool>> filter)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Entities.Concrate.Directory> GetAll(Expression<Func<Entities.Concrate.Directory, bool>> filter = null)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Entities.Concrate.Directory Update(Entities.Concrate.Directory entity)
-        {
-            throw new NotImplementedException();
         }
     }
 }

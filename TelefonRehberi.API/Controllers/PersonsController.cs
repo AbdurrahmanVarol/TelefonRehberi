@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using TelefonRehberi.API.Models;
 using TelefonRehberi.Business.Abstract;
 using TelefonRehberi.Entities.Concrate;
 
@@ -34,25 +35,39 @@ namespace TelefonRehberi.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] Person person)
+        public IActionResult Post([FromBody] PersonModel personModel)
         {
-            if (person == null)
+            if (personModel == null)
                 return BadRequest();
 
+            var person = new Person
+            {
+                FirstName = personModel.FirstName,
+                LastName = personModel.LastName,
+                Company = personModel.Company,
+                DirectoryId = personModel.DirectoryId
+            };
             var addedPerson = _personService.Add(person);
 
             return Ok(addedPerson);
         }
 
         [HttpPut]
-        public IActionResult Put([FromBody] Person person)
+        public IActionResult Put([FromBody] PersonModel personModel)
         {
-            if (person == null)
+            if (personModel == null)
                 return BadRequest();
 
-            var updatedPerson = _personService.Update(person);
+            var person = new Person
+            {
+                FirstName = personModel.FirstName,
+                LastName = personModel.LastName,
+                Company = personModel.Company,
+                DirectoryId = personModel.DirectoryId
+            };
+            var addedPerson = _personService.Update(person);
 
-            return Ok(updatedPerson);
+            return Ok(addedPerson);
         }
 
         [HttpDelete]

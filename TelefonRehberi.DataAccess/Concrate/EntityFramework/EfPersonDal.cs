@@ -9,31 +9,10 @@ using TelefonRehberi.Entities.Concrate;
 
 namespace TelefonRehberi.DataAccess.Concrate.EntityFramework
 {
-    public class EfPersonDal : IPersonDal
+    public class EfPersonDal : EfEntityRepositoryBase<Person, TelefonRehberiContext>, IPersonDal
     {
-        public Person Add(Person entity)
+        public EfPersonDal(TelefonRehberiContext context) : base(context)
         {
-            throw new NotImplementedException();
-        }
-
-        public Person Delete(Person entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Person Get(Expression<Func<Person, bool>> filter)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Person> GetAll(Expression<Func<Person, bool>> filter = null)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Person Update(Person entity)
-        {
-            throw new NotImplementedException();
         }
     }
 }

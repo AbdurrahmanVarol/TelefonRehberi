@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using TelefonRehberi.DataAccess.Abstract;
 using TelefonRehberi.Entities.Abstract;
 
-namespace TelefonRehberi.DataAccess.Concrate.EntityFramework
+namespace TelefonRehberi.DataAccess.Concrete.EntityFramework
 {
     public class EfEntityRepositoryBase<TEntity, TContext> : IEntityRepository<TEntity>
         where TEntity : class, IEntity, new()

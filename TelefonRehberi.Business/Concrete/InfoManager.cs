@@ -7,7 +7,7 @@ using TelefonRehberi.Business.Abstract;
 using TelefonRehberi.DataAccess.Abstract;
 using TelefonRehberi.Entities.Concrete;
 
-namespace TelefonRehberi.Business.Concrate
+namespace TelefonRehberi.Business.Concrete
 {
     public class InfoManager : IInfoService
     {

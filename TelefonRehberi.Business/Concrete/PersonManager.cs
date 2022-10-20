@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 using TelefonRehberi.Business.Abstract;
 using TelefonRehberi.DataAccess.Abstract;
 using TelefonRehberi.Entities.Concrete;
+using TelefonRehberi.Entities.Concrete.ComplexTypes;
 
-namespace TelefonRehberi.Business.Concrate
+namespace TelefonRehberi.Business.Concrete
 {
     public class PersonManager : IPersonService
     {
@@ -36,6 +37,11 @@ namespace TelefonRehberi.Business.Concrate
         public Person GetById(Guid personId)
         {
             return _personDal.Get(p => p.PersonId == personId);
+        }
+
+        public List<Report> GetPersonReport()
+        {
+            return _personDal.GetPersonReport();
         }
 
         public Person Update(Person person)

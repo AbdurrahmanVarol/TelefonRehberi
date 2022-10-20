@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TelefonRehberi.DataAccess.Concrate.EntityFramework;
+using TelefonRehberi.DataAccess.Concrete.EntityFramework;
 
 #nullable disable
 

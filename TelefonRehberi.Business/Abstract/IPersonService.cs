@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TelefonRehberi.Entities.Concrete;
+using TelefonRehberi.Entities.Concrete.ComplexTypes;
 
 namespace TelefonRehberi.Business.Abstract
 {
@@ -14,5 +15,6 @@ namespace TelefonRehberi.Business.Abstract
         Person Update(Person person);
         Person GetById(Guid personId);
         List<Person> GetAll();
+        List<Report> GetPersonReport();
     }
 }

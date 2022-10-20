@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using TelefonRehberi.Business.Abstract;
-using TelefonRehberi.Business.Concrate;
+using TelefonRehberi.Business.Concrete;
 using TelefonRehberi.DataAccess.Abstract;
-using TelefonRehberi.DataAccess.Concrate.EntityFramework;
+using TelefonRehberi.DataAccess.Concrete.EntityFramework;
 
 var builder = WebApplication.CreateBuilder(args);
 

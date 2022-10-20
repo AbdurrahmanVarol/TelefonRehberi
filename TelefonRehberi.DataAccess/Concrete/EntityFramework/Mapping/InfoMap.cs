@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TelefonRehberi.Entities.Concrete;
 
-namespace TelefonRehberi.DataAccess.Concrate.EntityFramework.Mapping
+namespace TelefonRehberi.DataAccess.Concrete.EntityFramework
 {
     public class InfoMap : IEntityTypeConfiguration<Info>
     {

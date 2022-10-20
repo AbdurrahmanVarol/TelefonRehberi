@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using TelefonRehberi.DataAccess.Abstract;
 using TelefonRehberi.Entities.Concrete;
 
-namespace TelefonRehberi.DataAccess.Concrate.EntityFramework
+namespace TelefonRehberi.DataAccess.Concrete.EntityFramework
 {
     public class EfInfoDal : EfEntityRepositoryBase<Info, TelefonRehberiContext>, IInfoDal
     {

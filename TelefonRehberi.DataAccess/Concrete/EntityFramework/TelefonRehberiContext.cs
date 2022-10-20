@@ -5,10 +5,10 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using TelefonRehberi.DataAccess.Concrate.EntityFramework.Mapping;
+using TelefonRehberi.DataAccess.Concrete.EntityFramework.Mapping;
 using TelefonRehberi.Entities.Concrete;
 
-namespace TelefonRehberi.DataAccess.Concrate.EntityFramework
+namespace TelefonRehberi.DataAccess.Concrete.EntityFramework
 {
     public class TelefonRehberiContext : DbContext
     {

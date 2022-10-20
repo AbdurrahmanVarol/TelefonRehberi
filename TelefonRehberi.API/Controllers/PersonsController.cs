@@ -83,6 +83,12 @@ namespace TelefonRehberi.API.Controllers
             return NoContent();
         }
 
+        [HttpGet("report")]
+        public IActionResult GetReport()
+        {
+            return Ok(_personService.GetPersonReport());
+        }
+
         //GET
         //Persons/5/CommunicationInfo
 

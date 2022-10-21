@@ -18,8 +18,6 @@ namespace TelefonRehberi.API.Controllers
         {
             _personService = personService;
             _cache = cache;
-            _cache.Set("Persons", _personService.GetAll());
-
         }
 
         [HttpGet]
@@ -27,7 +25,7 @@ namespace TelefonRehberi.API.Controllers
         {
             //return Ok(_personService.GetAll());
             var inCacheList = _cache.Get<List<Person>>("Persons");
-            
+
             if (inCacheList == null)
             {
                 var list = _personService.GetAll();
@@ -42,6 +40,23 @@ namespace TelefonRehberi.API.Controllers
         public IActionResult Get(Guid personId)
         {
             var person = _personService.GetById(personId);
+            if (person == null)
+                return NotFound();
+            return Ok(person);
+        }
+
+        [HttpGet("details")]
+        public IActionResult GetDetails()
+        {
+            var x = _personService.GetDetails();
+            return Ok(x);
+        }
+
+
+        [HttpGet("details/{personId}")]
+        public IActionResult GetDetails(Guid personId)
+        {
+            var person = _personService.GetDetailById(personId);
             if (person == null)
                 return NotFound();
             return Ok(person);

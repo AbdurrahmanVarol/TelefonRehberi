@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using TelefonRehberi.Business.Abstract;
@@ -37,6 +38,16 @@ namespace TelefonRehberi.Business.Concrete
         public Person GetById(Guid personId)
         {
             return _personDal.Get(p => p.PersonId == personId);
+        }
+
+        public Person GetDetailById(Guid personId)
+        {
+            return _personDal.GetDetail(p => p.PersonId == personId);
+        }
+
+        public List<Person> GetDetails()
+        {
+            return _personDal.GetDetails();
         }
 
         public List<Report> GetPersonReport()

@@ -5,6 +5,7 @@ using Moq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using TelefonRehberi.API.Controllers;
@@ -37,16 +38,25 @@ namespace TelefonRehberi.Tests.APITests
             _infoService = new InfoManager(_ınfoDal);
             _personDal = new EfPersonDal(new TelefonRehberiContext(options));
             _personService = new PersonManager(_personDal);
+            var config = new Dictionary<string, string>
+            {
+                {"RedisConfiguration:ConnectionString", "localhost:6379"},
+            };
+            var configuration = new ConfigurationBuilder()
+                                .AddInMemoryCollection(config)
+                                .Build();
+            _cache = new RedisCache(configuration);
 
             _personsController = new PersonsController(_personService, _cache);
         }
         [Test]
-        public void Post_WithBullOject_BadRequest()
+        public void Post_WithNullObject_BadRequest()
         {
-            var actual = _personsController.Post(null);
-            var x = 1;
-            //var badRequestResult = Assert.IsType<BadRequestObjectResult>(result);
-            //Assert.IsType<SerializableError>(badRequestResult.Value);
+            var actual = _personsController.Post(null) as BadRequestResult;
+
+            var expected = (int)HttpStatusCode.BadRequest;
+
+            Assert.That(actual.StatusCode, Is.EqualTo(expected));
         }
     }
 }

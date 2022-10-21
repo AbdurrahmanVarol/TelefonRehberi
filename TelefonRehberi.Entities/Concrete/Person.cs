@@ -14,6 +14,6 @@ namespace TelefonRehberi.Entities.Concrete
         public string LastName { get; set; }
         public string Company { get; set; }
 
-        ICollection<Info> Infos { get; set; }
+        public ICollection<Info> Infos { get; set; }
     }
 }

@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using TelefonRehberi.DataAccess.Abstract;
+using TelefonRehberi.Entities.Abstract;
 using TelefonRehberi.Entities.Concrete;
 using TelefonRehberi.Entities.Concrete.ComplexTypes;
 using TelefonRehberi.Entities.Enums;
@@ -17,6 +19,15 @@ namespace TelefonRehberi.DataAccess.Concrete.EntityFramework
         public EfPersonDal(TelefonRehberiContext context) : base(context)
         {
             _context = context;
+        }
+
+        public Person GetDetail(Expression<Func<Person, bool>> filter)
+        {
+            return _context.Persons.Include("Infos").FirstOrDefault(filter);
+        }
+        public List<Person> GetDetails(Expression<Func<Person, bool>> filter = null)
+        {
+            return filter == null ? _context.Persons.Include("Infos").ToList():_context.Persons.Include("Infos").Where(filter).ToList();
         }
 
         public List<Report> GetPersonReport()

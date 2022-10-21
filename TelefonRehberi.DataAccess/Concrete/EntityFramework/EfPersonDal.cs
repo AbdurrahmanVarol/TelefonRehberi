@@ -31,7 +31,8 @@ namespace TelefonRehberi.DataAccess.Concrete.EntityFramework
                         Location = g.Key.Description,
                         NumberOfLocation = g.Count(),
                         NumberOfPerson = g.Select(p => p.person).Count(),
-                        NumberOfPhoneNumber = (_context.Infos.Where(p=>p.InfoType==InfoType.PhoneNumber && g.Select(q=>q.person).Select(q=>q.PersonId).Contains(p.PersonId)).Count())
+                        NumberOfPhoneNumber = (_context.Infos.Where(p=>p.InfoType==InfoType.PhoneNumber && 
+                                                                       g.Select(q=>q.person.PersonId).Contains(p.PersonId)).Count())
                     }
                 ).ToList();
         }

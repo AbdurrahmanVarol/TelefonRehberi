@@ -35,6 +35,8 @@ namespace TelefonRehberi.API.Controllers
         {
             if (infoModel == null)
                 return BadRequest();
+            if (infoModel.PersonId == default(Guid))
+                return BadRequest();
             var info = new Info
             {
                 InfoType = infoModel.InfoType,
@@ -49,6 +51,8 @@ namespace TelefonRehberi.API.Controllers
         public IActionResult Put([FromBody] InfoModel infoModel)
         {
             if (infoModel == null)
+                return BadRequest();
+            if (infoModel.PersonId == default(Guid))
                 return BadRequest();
 
             var info = _infoService.GetById(infoModel.InfoId);

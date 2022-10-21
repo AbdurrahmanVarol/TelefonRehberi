@@ -3,13 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelefonRehberi.API", "TelefonRehberi.API\TelefonRehberi.API.csproj", "{49BDA487-9842-4C89-9673-CA3AD918E373}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelefonRehberi.API", "TelefonRehberi.API\TelefonRehberi.API.csproj", "{49BDA487-9842-4C89-9673-CA3AD918E373}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelefonRehberi.Entities", "TelefonRehberi.Entities\TelefonRehberi.Entities.csproj", "{197A71F5-4038-4DC1-A8F9-C383494BC0EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelefonRehberi.Entities", "TelefonRehberi.Entities\TelefonRehberi.Entities.csproj", "{197A71F5-4038-4DC1-A8F9-C383494BC0EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelefonRehberi.DataAccess", "TelefonRehberi.DataAccess\TelefonRehberi.DataAccess.csproj", "{756A559B-F1B9-4657-B9AC-FEF388DA7F65}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelefonRehberi.DataAccess", "TelefonRehberi.DataAccess\TelefonRehberi.DataAccess.csproj", "{756A559B-F1B9-4657-B9AC-FEF388DA7F65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelefonRehberi.Business", "TelefonRehberi.Business\TelefonRehberi.Business.csproj", "{EAE87ABA-274A-43B8-B6C5-9484EE643F92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelefonRehberi.Business", "TelefonRehberi.Business\TelefonRehberi.Business.csproj", "{EAE87ABA-274A-43B8-B6C5-9484EE643F92}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelefonRehberi.Tests", "TelefonRehberi.Tests\TelefonRehberi.Tests.csproj", "{CADDCFBF-4A3E-4437-B014-CCC33A71244C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelefonRehberi.Core", "TelefonRehberi.Core\TelefonRehberi.Core.csproj", "{9BA35586-98DE-40EF-9962-394FF4B31CAA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{EAE87ABA-274A-43B8-B6C5-9484EE643F92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EAE87ABA-274A-43B8-B6C5-9484EE643F92}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EAE87ABA-274A-43B8-B6C5-9484EE643F92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CADDCFBF-4A3E-4437-B014-CCC33A71244C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CADDCFBF-4A3E-4437-B014-CCC33A71244C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CADDCFBF-4A3E-4437-B014-CCC33A71244C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CADDCFBF-4A3E-4437-B014-CCC33A71244C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BA35586-98DE-40EF-9962-394FF4B31CAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BA35586-98DE-40EF-9962-394FF4B31CAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BA35586-98DE-40EF-9962-394FF4B31CAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BA35586-98DE-40EF-9962-394FF4B31CAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

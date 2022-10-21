@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using TelefonRehberi.Business.Abstract;
 using TelefonRehberi.Business.Concrete;
+using TelefonRehberi.Core.Caching;
+using TelefonRehberi.Core.Caching.Redis;
 using TelefonRehberi.DataAccess.Abstract;
 using TelefonRehberi.DataAccess.Concrete.EntityFramework;
 
@@ -16,6 +18,8 @@ builder.Services.AddScoped<IInfoService, InfoManager>();
 
 builder.Services.AddScoped<IPersonDal, EfPersonDal>();
 builder.Services.AddScoped<IInfoDal, EfInfoDal>();
+
+builder.Services.AddSingleton<ICache, RedisCache>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

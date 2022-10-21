@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using TelefonRehberi.API.Models;
 using TelefonRehberi.Business.Abstract;
+using TelefonRehberi.Core.Caching;
 using TelefonRehberi.Entities.Concrete;
 
 namespace TelefonRehberi.API.Controllers
@@ -12,16 +12,29 @@ namespace TelefonRehberi.API.Controllers
     public class PersonsController : ControllerBase
     {
         private readonly IPersonService _personService;
+        private ICache _cache;
 
-        public PersonsController(IPersonService personService)
+        public PersonsController(IPersonService personService, ICache cache)
         {
             _personService = personService;
+            _cache = cache;
+            _cache.Set("Persons", _personService.GetAll());
+
         }
 
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(_personService.GetAll());
+            //return Ok(_personService.GetAll());
+            var inCacheList = _cache.Get<List<Person>>("Persons");
+            
+            if (inCacheList == null)
+            {
+                var list = _personService.GetAll();
+                _cache.Set("Persons", list);
+                return Ok(list);
+            }
+            return Ok(inCacheList);
         }
 
         [HttpGet]
@@ -48,6 +61,12 @@ namespace TelefonRehberi.API.Controllers
             };
             var addedPerson = _personService.Add(person);
 
+            var persons = _cache.Get<List<Person>>("Persons");
+
+            persons.Add(person);
+
+            _cache.Set("Persons", persons);
+
             return Ok(addedPerson);
         }
 
@@ -66,6 +85,16 @@ namespace TelefonRehberi.API.Controllers
             person.Company = personModel.Company;
 
             var updatedPerson = _personService.Update(person);
+
+            var persons = _cache.Get<List<Person>>("Persons");
+
+            var index = persons.FindIndex(p => p.PersonId == person.PersonId);
+
+            persons[index].FirstName = personModel.FirstName;
+            persons[index].LastName = personModel.LastName;
+            persons[index].Company = personModel.Company;
+
+            _cache.Set("Persons", persons);
 
             return Ok(updatedPerson);
         }
@@ -88,13 +117,5 @@ namespace TelefonRehberi.API.Controllers
         {
             return Ok(_personService.GetPersonReport());
         }
-
-        //GET
-        //Persons/5/CommunicationInfo
-
-        //CommunicatioInfo (Body Person Id : 5)
-
-        // Persons/CommunicationInfo
-
     }
 }

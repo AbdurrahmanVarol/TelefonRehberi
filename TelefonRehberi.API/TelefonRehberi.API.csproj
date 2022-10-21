@@ -13,12 +13,14 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.10" />
+    <PackageReference Include="StackExchange.Redis" Version="2.6.70" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\TelefonRehberi.Business\TelefonRehberi.Business.csproj" />
+    <ProjectReference Include="..\TelefonRehberi.Core\TelefonRehberi.Core.csproj" />
     <ProjectReference Include="..\TelefonRehberi.DataAccess\TelefonRehberi.DataAccess.csproj" />
   </ItemGroup>
 

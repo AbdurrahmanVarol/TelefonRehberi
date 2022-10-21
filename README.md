@@ -20,7 +20,7 @@
 		• Bilgi Tipi: Telefon Numarası, E-mail Adresi, Konum 
 		• Bilgi İçeriği 
 	### Rapor: 
- 		Basitçe aşağıdaki bilgileri içerecektir:
+ 		Basitçe aşağıdaki bilgileri içermektedir:
 		• Konum Bilgisi 
 			o En çok -> En az olacak şekilde konumlarının sayılarıyla listelenmesi 
 			o O konumda yer alan rehbere kayıtlı kişi sayısı 

@@ -35,6 +35,8 @@ Veri tabanı ve redis conneciton stingleri TelefonRehbei.API projesinin içerisi
 		HttpGet:
 		• /Persons: Rehbere kayıtlı tüm kişileri getitir
 		• /Person/{personId} : İd li kişiyi getirir.
+		• /Person/details : Kişileri iletişim bilgileri ile getirir.
+		• /Person/report : Id li kişiyi iletişim bilgisi ile getirir.
 		• /Person/report : Kişilerin konum bilgilerine göre bir istatistik raporu dönderir.
 
 		HttpPost: 

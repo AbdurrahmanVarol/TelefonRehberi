@@ -154,21 +154,9 @@ namespace TelefonRehberi.Tests.APITests
             Assert.That(actual.StatusCode, Is.EqualTo(expected));
         }
         [Test]
-        public void Delete_WithDefaultValue_NotFound()
+        public void Delete_NotFound()
         {
-            var person = _personService.Add(new Person
-            {
-                FirstName = "Farık",
-                LastName = "Far",
-                Company = "Faraf"
-            });
-            var info = _infoService.Add(new Info
-            {
-                InfoType = InfoType.Location,
-                Description = "Ankara",
-                PersonId = person.PersonId
-            });
-            var actual= _infosController.Delete(info.InfoId) as NotFoundResult;
+            var actual= _infosController.Delete(Guid.NewGuid()) as NotFoundResult;
 
             var expected = (int)HttpStatusCode.NotFound;
 
@@ -183,8 +171,14 @@ namespace TelefonRehberi.Tests.APITests
                 LastName = "Far",
                 Company = "Faraf"
             });
+            var info = _infoService.Add(new Info
+            {
+                InfoType = InfoType.Location,
+                Description = "Ankara",
+                PersonId = person.PersonId
+            });
 
-            var actual= _infosController.Delete(default(Guid)) as NoContentResult;
+            var actual= _infosController.Delete(info.InfoId) as NoContentResult;
 
             var expected = (int)HttpStatusCode.NoContent;
 

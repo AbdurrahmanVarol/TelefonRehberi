@@ -105,12 +105,16 @@ namespace TelefonRehberi.API.Controllers
 
             var index = persons.FindIndex(p => p.PersonId == person.PersonId);
 
-            persons[index].FirstName = personModel.FirstName;
-            persons[index].LastName = personModel.LastName;
-            persons[index].Company = personModel.Company;
-
-            _cache.Set("Persons", persons);
-
+            if (index == -1)
+            {
+                _cache.Set("Persons", _personService.GetAll());
+            }
+            else
+            {
+                persons[index].FirstName = personModel.FirstName;
+                persons[index].LastName = personModel.LastName;
+                persons[index].Company = personModel.Company;
+            }
             return Ok(updatedPerson);
         }
 
